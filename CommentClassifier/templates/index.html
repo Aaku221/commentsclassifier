@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is my first web page in Pycharm</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBeqmGVdzm5B-U9S7nm9lt-o_eLTbcNqA8",
+            authDomain: "machinelearningwebapp.firebaseapp.com",
+            databaseURL: "https://machinelearningwebapp.firebaseio.com",
+            projectId: "machinelearningwebapp",
+            storageBucket: "",
+            messagingSenderId: "1032670238615"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+<body>
+<h1> Welcome to the Machine Learning Web Application</h1>
+<p>Hello from Jinja {{ data }}</p>
+
+<form>
+    <label>Email:
+    </label>
+    <input type="text" name="email" id="registerEmail"><br>
+    <label>Password:</label>
+    <input type="text" name="password" id="registerPassword">
+</form>
+
+<button id="registerButton">Register</button>
+<button id="signOut">Sign out</button>
+<button id="signIn">Sign in</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+
+    var dbRef=firebase.database();
+    var usersRef=dbRef.ref('users');
+
+    $('#registerButton').on('click', function (e) {
+        console.log("Register button clicked.");
+
+        var data={
+            email:$('#registerEmail').val(),
+            password:$('#registerPassword').val()
+        };
+
+        if(data.email!='' && data.password!='')
+        {
+            firebase.auth().createUserWithEmailAndPassword(data.email, data.password).then(function(user) {
+                console.log("User created");
+                usersRef
+                    .child(user.uid)
+                    .set(data)
+                    .then(function(){
+                        console.log("User info saved to id:", user.uid);
+                    })
+            });
+        }
+        else
+        {
+            alert("Enter all details");
+        }
+        //console.log(data.email);
+        //console.log(data.password);
+    });
+
+    $('#signOut').on('click',function(e){
+        console.log("Sign out button clicked");
+
+        firebase.auth().signOut().then(function() {
+            console.log("Sign out successful");
+        }).catch(function(error) {
+            // An error happened.
+        });
+    });
+
+    $('#signIn').on('click',function(e){
+        console.log("Sign in button clicked");
+
+        var data={
+            email:$('#registerEmail').val(),
+            password:$('#registerPassword').val()
+        };
+
+        firebase.auth().signInWithEmailAndPassword(data.email, data.password).catch(function(error) {
+            console.log("Sign in successful");
+        });
+    });
+
+    // Check if the current user is logged in or logged out
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            alert("User has signed in");
+        } else {
+            alert("User has signed out");
+        }
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Prospect - The Comments Classification Service</title>
+
+    <style>
+
+        .myButton{
+            margin-right: 80px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+    <div class='btn-group'>
+        <a href="http://127.0.0.1:5000/deleteTweets" class="btn btn-danger myButton">
+            Delete Tweets
+        </a>
+    </div>
+  </div>
+  <h2>Prospect has marked abusive tweets as red</h2>
+</div>
+
+
+<div class="container">
+    <div class="list-group">
+        {% for tweet in Tweets %}
+            {% if results[loop.index - 1] == "Abusive" %}
+            <a href="#" class="list-group-item list-group-item-danger abusive">{{ tweet }}</a>
+            {% else %}
+            <a href="#" class="list-group-item list-group-item-info">{{ tweet }}</a>
+            {% endif %}
+        {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>

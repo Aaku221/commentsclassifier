@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Prospect - Home Page</title>
+
+    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+
+    <style>
+        html,
+        body,
+        .carousel,
+        .carousel-inner,
+        .carousel-inner .item {
+            height: 100%;
+        }
+    .item:nth-child(1) {
+      background: #191919;
+    }
+    .item:nth-child(2) {
+      background: #191919;
+    }
+    .item:nth-child(3) {
+      background: #191919;
+    }
+    .item:nth-child(4) {
+      background: #191919;
+    }
+    /* Changes position of caption */
+    .carousel-caption {
+      top: 30%;
+      bottom: auto;
+    }
+    body{
+        background: #191919;
+    }
+    .nav.navbar-nav.navbar-right li a{
+        color: #ffffff;
+        margin-right: 10px;
+    }
+    #prospect{
+        color: #ffffff;
+        margin-left: 25px;
+    }
+    .text{
+        font-size: 55px;
+        font-family: Times New Roman;
+    }
+    h2{
+         margin-right: 100px;
+    }
+    #learn{
+        margin-right: 100px;
+    }
+    .glyphicon-before{
+        margin-right: 10px;
+    }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" id="prospect"><span class="glyphicon glyphicon-education glyphicon-before"></span>Prospect</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="http://127.0.0.1:5000/login">Login</a></li>
+          <li><a href="http://127.0.0.1:5000/about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+
+          <div class="active item">
+             <div class="carousel-caption">
+              <h2>01/04</h2><br>
+              <p class="lead text">What if I told you technology could improve online conversations?</p>
+              <!-- <a class="btn btn-primary" href="#">Learn more</a> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="carousel-caption">
+              <h2>02/04</h2><br>
+              <p class="lead text">Safer from online harassment</p>
+              <!-- <a class="btn btn-primary" href="#">Learn more</a> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="carousel-caption">
+              <h2>03/04</h2><br>
+              <p class="lead text">Guaranteed Freedom of Speech</p>
+             <!--  <a class="btn btn-primary" href="#">Learn more</a> -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="carousel-caption">
+              <h2>04/04</h2><br>
+              <p class="lead text">Introducing the future - Prospect!</p>
+              <a class="btn btn-primary" href="http://127.0.0.1:5000/about" id="learn">Learn more</a>
+            </div>
+          </div>
+
+      </div>
+
+  </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+</body>
+
+</html>

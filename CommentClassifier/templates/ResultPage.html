@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>This is the result page</title>
+
+    <style>
+
+        .myButton{
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+
+        .btn-space {
+            margin-right: 80px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+{% if MinedTweets is defined %}
+
+    <div class='page-header'>
+      <div class='btn-toolbar pull-right'>
+        <div class='btn-group'>
+            <form action="http://127.0.0.1:5000/test" method="POST">
+                <button type="submit" name="backToTest" value="searchAgain" class="btn btn-info btn-space myButton">Search again</button>
+                <button type="submit" name="backToTest" value="activate" class='btn btn-danger myButton'>Activate Prospect</button>
+            </form>
+        </div>
+      </div>
+      <h2>Since you searched for {{ keyword1 }}, {{ keyword2 }} and {{ keyword3 }}:</h2>
+    </div>
+
+    <div class="container">
+        <ul class="list-group">
+        <h2>Displaying Matching Tweets</h2>
+            {%  for tweet in MinedTweets %}
+                <li class="list-group-item">{{ tweet }}
+                    <form class="form-inline pull-right vertical-align" method="POST" action="http://127.0.0.1:5000/inspect">
+                      <button class="btn btn-primary" type="submit" name="tweetID" value="{{ tweet }}">Inspect Tweet</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endif %}
+
+{% if ProperTweets is defined %}
+
+    <div class='page-header'>
+      <div class='btn-toolbar pull-right'>
+        <div class='btn-group'>
+            <form action="http://127.0.0.1:5000/test" method="POST">
+                <button type="submit" name="backToTest" value="searchAgain" class="btn btn-info btn-space myButton">Search again</button>
+            </form>
+        </div>
+      </div>
+      <h2>Prospect - Improving online conversations</h2>
+    </div>
+
+    <div class="container">
+        <ul class="list-group">
+        <h2>Proper Tweets</h2>
+            {%  for tweet in ProperTweets %}
+                <li class="list-group-item">{{ tweet }}
+                    <form class="form-inline pull-right vertical-align" method="POST" action="http://127.0.0.1:5000/inspect">
+                      <button class="btn btn-primary" type="submit" name="tweetID" value="{{ tweet }}">Inspect Tweet</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endif %}
+
+{% if userVerifiedTweets is defined %}
+
+    <div class='page-header'>
+      <div class='btn-toolbar pull-right'>
+        <div class='btn-group'>
+            <form action="http://127.0.0.1:5000/test" method="POST">
+                <button type="submit" name="backToTest" value="searchAgain" class="btn btn-info btn-space myButton">Search again</button>
+                <button type="submit" name="backToTest" value="activate" class='btn btn-danger myButton'>Activate Prospect</button>
+            </form>
+        </div>
+      </div>
+      <h2>Prospect is really sad... <img src="/static/images/SadFace.png" width="42" height="42" /></h2>
+    </div>
+
+    <div class="container">
+        <ul class="list-group">
+        <h2>User Verified Tweets</h2>
+            {%  for tweet in userVerifiedTweets %}
+                <li class="list-group-item">{{ tweet }}
+                    <form class="form-inline pull-right vertical-align" method="POST" action="http://127.0.0.1:5000/inspect">
+                      <button class="btn btn-primary" type="submit" name="tweetID" value="{{ tweet }}">Inspect Tweet</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endif %}
+
+</body>
+</html>

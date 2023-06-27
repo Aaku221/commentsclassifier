@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Inspect Page</title>
+
+    <style>
+
+        .button-container form,
+        .button-container form div {
+            display: inline;
+        }
+
+        .button-container button {
+            display: inline;
+            vertical-align: middle;
+        }
+
+        .myButton{
+            padding: 10px 20px;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+        
+    </style>
+
+</head>
+<body>
+
+<div class='page-header'>
+<h1>Inspecting Tweet...</h1>
+</div>
+
+<div class="button-container">
+
+    <form action="http://127.0.0.1:5000/runProspect" method="POST">
+
+        <blockquote>
+            <p>{{ inspectTweet }}</p>
+            <footer>From Twitter</footer>
+        </blockquote>
+
+        <br>
+
+        <button class="btn btn-primary myButton" type="submit" name="run" value="{{ inspectTweet }}">Run Prospect</button>
+        &nbsp;
+
+    </form>
+
+    <form action="http://127.0.0.1:5000/prospect" method="POST">
+
+        <button class="btn btn-danger myButton" type="submit" name="delete" value="{{ inspectTweet }}">Delete Tweet</button>
+        &nbsp;
+
+    </form>
+
+</div>
+
+</body>
+</html>

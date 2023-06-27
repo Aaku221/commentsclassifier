@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Run Prospect</title>
+    <style>
+
+        html, body {
+          height: 100%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+{% if classifierResult == "Abusive" %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Oops! That is an Abusive comment</h1>
+            <p>Take necessary action by deleting the tweet or activating prospect to find similar tweets.</p>
+        </div>
+    </div>
+
+    {% else %}
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>That is not an abusive comment!</h1>
+            <p>This tweet is good to go. You can go head inspecting other tweets or activate prospect to save time.</p>
+        </div>
+    </div>
+
+{% endif %}
+
+</body>
+</html>

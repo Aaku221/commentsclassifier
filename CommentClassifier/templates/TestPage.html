@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>This is the test page</title>
+
+    <style>
+
+        textarea{
+            border: 1px solid #888;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <form action = "http://127.0.0.1:5000/testTweet" method = "POST">
+
+        <div class="form-group">
+            <textarea class="form-control" rows="10" placeholder="Type here to know the potential effect of what you are typing" name="comment"></textarea>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+<br>
+<br>
+
+<div class="container">
+
+    <h2>Search for Tweets</h2>
+
+    <br>
+
+    <form action = "http://127.0.0.1:5000/predict" method = "POST">
+
+        <div class="form-group">
+            <label>Keyword 1:</label>
+            <input type="text" class="form-control" placeholder="Enter keyword 1" name="word1">
+        </div>
+
+        <div class="form-group">
+            <label>Keyword 2:</label>
+            <input type="text" class="form-control" placeholder="Enter keyword 2" name="word2">
+        </div>
+
+      <div class="form-group">
+        <label>Keyword 3:</label>
+        <input type="text" class="form-control" placeholder="Enter keyword 3" name="word3">
+      </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>
